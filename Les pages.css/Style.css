@@ -10,6 +10,7 @@ background: linear-gradient(135deg, #1a0000, #330000, #660000), url('../Dossier 
   background-blend-mode: multiply;
   background-size: cover;
   color: white;
+ 
 }
 
 li{
@@ -44,7 +45,7 @@ header{
 .navbar .logo a{
     font-size: 1.5rem;
     font-weight: blod;
-    color: #aa652d;
+    color:#51ca0b;
 }
 .navbar .logo a:hover{
     color: #51ca0b;
@@ -152,12 +153,13 @@ footer {
 }
 /* Footer fixé en bas de la page */
 footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     z-index: 100;
 }
+/* Eviter que le footer fixe masque le contenu */
 
 /* pour la page competance */
 .liste-competences {
@@ -175,11 +177,161 @@ footer {
     max-width: 320px;
     box-shadow: 0 2px 8px rgba(44,62,80,0.08);
     text-align: center;
+    color : white;
 }
 .competence h2 {
     margin-bottom: 10px;
     color: #51ca0b;
 }
+
+/* pour la page Accueil */
+.main-acceuil{
+    text-align: center;
+    margin-top: 40px;
+}   
+.main-acceuil h1{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #51ca0b;
+}
+.etudiant {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.carte {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #5f5c5c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  max-width: 900px;
+  width: 100%;
+}
+
+.texte {
+  flex: 1;
+  min-width: 280px;
+}
+
+.galerie-stack {
+  flex: 1;
+  min-width: 280px;
+  max-width: 300px;
+  height: 400px;
+  position: relative;
+  border: 2px solid rgb(10, 230, 65);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,255,255,0.3);
+}
+
+.images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#v1:checked ~ .images .s1,
+#v2:checked ~ .images .s2,
+#v3:checked ~ .images .s3,
+#a1:checked ~ .images .s1,
+#a2:checked ~ .images .s2,
+#a3:checked ~ .images .s3 {
+  opacity: 1;
+  z-index: 1;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.5em;
+  border-radius: 5px;
+}
+
+
+/* Layout carte : texte justifié à gauche, galerie à droite */
+.carte {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* permet le passage en colonne sur petits écrans */
+}
+
+/* Colonne texte */
+.carte .texte {
+    flex: 1 1 480px; /* prend l'espace disponible */
+}
+
+/* Justification et lisibilité du paragraphe */
+.carte .texte p {
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left; /* dernière ligne alignée à gauche */
+    hyphens: auto; /* césure automatique si supportée */
+    color: #eaeaea; /* adapte si besoin */
+}
+
+/* Colonne galerie (à droite) */
+.carte .galerie-stack {
+    flex: 0 0 360px; /* largeur fixe/adaptable */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Images galerie */
+.carte .galerie-stack img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+}
+
+
+ 
 
 /* Responsive */
 @media (max-width: 768px){
