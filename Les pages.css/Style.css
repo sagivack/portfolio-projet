@@ -6,7 +6,7 @@
     scroll-behavior: smooth;
 }
 body{
-background: linear-gradient(135deg, #1a0000, #330000, #660000), url('../Dossier images/ii.jpg');
+background: linear-gradient(135deg, #1a0000, #330000, #660000), url('../images/ii.jpg');
   background-blend-mode: multiply;
   background-size: cover;
   color: white;
@@ -15,15 +15,6 @@ background: linear-gradient(135deg, #1a0000, #330000, #660000), url('../Dossier 
 
 li{
     list-style: none;
-}
-a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-}
-a:hover{
-    color: #51ca0b;
-    transition: 0.3s;
 }
 
 header{
@@ -44,8 +35,9 @@ header{
 }
 .navbar .logo a{
     font-size: 1.5rem;
-    font-weight: blod;
+    font-weight: bold;
     color:#51ca0b;
+    text-decoration:none
 }
 .navbar .logo a:hover{
     color: #51ca0b;
@@ -54,6 +46,29 @@ header{
 .navbar .links{
     display: flex;
     gap: 2rem;
+}
+.navbar .links li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.navbar .links li a:hover{
+    color: #51ca0b;
+}
+.navbar .links li a::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(135deg, #51ca0b, #3a9408);
+    transition: width 0.3s ease;
+}
+.navbar .links li a:hover::after{
+    width: 100%;
 }
 
 .button i {
@@ -127,7 +142,7 @@ footer {
     color: #fff;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background-color 0.2s;
 }
 .footer-newsletter button:hover {
     background: #3a9408;
@@ -192,7 +207,8 @@ footer {
 .main-acceuil h1{
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #51ca0b;
+    text-align: center;
+    margin-right: 30rem
 }
 .etudiant {
   padding: 20px;
@@ -204,7 +220,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  background-color: #5f5c5c;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -229,7 +245,7 @@ footer {
   box-shadow: 0 0 10px rgba(0,255,255,0.3);
 }
 
-.images {
+/*.images {
   position: relative;
   width: 100%;
   height: 100%;
@@ -242,7 +258,7 @@ footer {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
-
+  /*
 .slide img {
   width: 100%;
   height: 100%;
@@ -271,7 +287,7 @@ input[type="radio"] {
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-}
+}  */
 
 .nav-btn {
   cursor: pointer;
@@ -325,13 +341,330 @@ input[type="radio"] {
 
 /* Footer */
 footer {
-  background-color: #222;
+  background-color: #050505;
   padding: 20px;
   text-align: center;
+  position: relative;
 }
 
+/* Sticky footer layout : footer collé en bas si contenu court, sinon suit le contenu 
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1 0 auto; /* prend l'espace disponible 
+}
+/* S'assurer que le footer n'a pas de position qui le retire du flux 
+footer {
+    position: static !important;
+    margin-top: auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}*/
 
- 
+/* Styles pour la page Projets */
+.projects {
+    padding: 5rem 5%;
+    position: relative;
+}
+.project-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.project-card{
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+}
+.project-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #51ca0b;
+}
+.project-image{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.project-info{
+    padding: 1rem;
+    color: #fff;
+}
+.project-titre{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #51ca0b;
+}
+.project-description{
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ccc;
+}
+.project-tech{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.tech-badge{
+    background: rgba(81, 202, 11, 0.2);
+    color: #51ca0b;
+    padding: 0.25rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+.project-links a{
+    color: #ddebd5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    font-size: 0.9rem;
+    align-items: center;
+    gap: 0.3rem;
+}
+.project-links:hover {
+    color: #53a302;
+}
+
+.section-titre{
+   font-size: 2.5rem;
+   margin-bottom: 3rem;
+   text-align: center;
+   position: relative;
+   display: inline-block;
+   left: 50%;
+   transform: translateX(-50%);
+   color: white
+}
+.section-titre::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background:linear-gradient(90deg, rgba(81, 202, 11, 0.8), rgba(81, 202, 11, 0));
+    border-radius: 3px;
+}
+/* page de contact */
+ .contact-main{
+    padding: 2rem;
+    color: white;
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 120px); /* laisser de la place pour le footer (ajuste 120px si besoin) */
+    padding-bottom: 140px; /* espace pour que le formulaire ne soit pas sous le footer */
+}
+     
+/* ...existing code... */
+.contact-info{
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+    align-items: stretch; /* important : enfants prennent la même hauteur */
+}
+
+/* adresse et map prennent chacune la même part de la ligne */
+.contact-info > .adresse,
+.contact-info > .map {
+    flex: 1 1 0;
+    box-sizing: border-box;
+    min-height: 240px;
+}
+
+/* Adresse */
+.adresse{
+    background: linear-gradient(180deg, rgba(17,17,17,0.6), rgba(10,10,10,0.4));
+    padding: 1.2rem;
+    border-radius: 12px;
+    color: #e6f7e6;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    border: 1px solid rgba(81,202,11,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.adresse h3{
+    margin: 0;
+    color: #51ca0b;
+    font-size: 1.1rem;
+}
+.adresse p{
+    margin: 0;
+    color: #dfeee0;
+    font-size: 0.95rem;
+}
+.adresse a{
+    color: #cfe9c7;
+    text-decoration: none;
+}
+.adresse a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Map */
+.map{
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.03);
+    min-height: 240px;
+    display: flex;
+    align-items: stretch;
+}
+
+/* iframe plein */
+.map iframe{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+}
+
+/* Responsive : empiler sur mobile */
+@media (max-width: 980px){
+    .contact-info{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .contact-info > .adresse,
+    .contact-info > .map {
+        min-height: 200px;
+    }
+}
+
+/* Styles pour le formulaire de contact */
+
+.form{
+  background: rgba(17,17,17,0.55);
+  padding: 0.9rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 620px;
+  margin: 0.8rem auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  border: 1px solid rgba(81,202,11,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: #eaeaea;
+  font-size: 0.95rem;
+}
+.gender-field {
+  border: none;
+  padding: 0;
+  margin: 0.4rem 0;
+}
+.gender-field legend {
+  font-weight: 600;
+  color: #dfeee0;
+  margin-bottom: 6px;
+}
+.gender-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.gender-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #eaeaea;
+  font-size: 0.95rem;
+}
+.gender-row input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #51ca0b;
+}
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #f5f5f5;
+  outline: none;
+  font-size: 0.95rem;
+}
+.form textarea { min-height: 90px; resize: vertical; }
+.form .btn-submit{
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg,#51ca0b,#3a9408);
+  color: #081204;
+  font-weight: 700;
+  align-self: flex-end;
+}
+@media (max-width: 520px){
+  .form { padding: 0.8rem; max-width: 95%; }
+  .form .btn-submit { width: 100%; align-self: stretch; }
+}
+
+/* bouton Envoyer (form contact) */
+.form button[type="submit"] {
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #51ca0b 0%, #3a9408 100%); /* couleur principale */
+  color: #081204;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(58,148,8,0.18);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+  align-self: flex-end;
+}
+.form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(58,148,8,0.26);
+}
+.form button[type="submit"]:active { transform: translateY(-1px); }
+/* ...existing code... */
+
+/* Ligne décorative sous le titre de la page Contact (comme les autres) */
+.contact-main .section-titre {
+    position: relative;    /* nécessaire pour que ::after soit positionné par rapport au titre */
+    display: block;        /* bloc centré par margin auto */
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    left: auto !important;
+    transform: none !important;
+    margin-bottom: 8rem;
+}
+.contact-main .section-titre::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(81,202,11,0.8), rgba(81,202,11,0));
+    border-radius: 3px;
+    pointer-events: none;
+}
 
 /* Responsive */
 @media (max-width: 768px){
